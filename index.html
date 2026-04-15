@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LE SUFI Handmade Jewelry |  E-Commerce Website Handmade Art</title>
     <style>
-        /* --- CSS STYLING --- */
         :root {
             --gold: #252114;
             --dark: #222;
@@ -160,7 +159,7 @@
         }
 #cart-panel {
     position: fixed;
-    right: -400px; /* This hides it off-screen to the right */
+    right: -400px; 
     top: 0;
     width: 350px;
     height: 100%;
@@ -172,7 +171,7 @@
     text-align: left;
 }
 
-/* This is the magic part: when 'active' is added, it slides into view */
+
 #cart-panel.active {
     right: 0;
 }
@@ -279,7 +278,7 @@
 
     let cart = [];
 
-// 2. SHOW PRODUCTS ON SCREEN
+
 function displayProducts(items) {
     const display = document.getElementById('product-display');
     if(!display) return;
@@ -293,7 +292,7 @@ function displayProducts(items) {
     `).join('');
 }
 
-// 3. SEARCH & CATEGORIES
+
 function searchItems() {
     const term = document.getElementById("searchInput").value.toLowerCase();
     const filtered = products.filter(p => p.name.toLowerCase().includes(term));
@@ -305,7 +304,7 @@ function filterProducts(cat) {
     displayProducts(filtered);
 }
 
-// 4. CART FUNCTIONS
+
 function addToCart(id) {
     const item = products.find(p => p.id === id);
     cart.push(item);
@@ -322,13 +321,13 @@ function updateCartUI() {
 }
 
 function toggleCart() {
-    // This finds the sliding panel and hides/shows it
+    
     const panel = document.getElementById('cart-panel');
     panel.classList.toggle('active');
 }
 
 function processCheckout() {
-    // We only want to look at the inputs inside the sliding panel
+    
     const name = document.getElementById('custName').value;
     const addr = document.getElementById('custAddress').value;
     const phone = document.getElementById('custPhone').value;
@@ -345,17 +344,17 @@ function processCheckout() {
 
     alert("Thank you, " + name + "! Your order for Le Sufi has been received. We will contact you at " + phone);
 
-    // Clear the cart and reset the inputs
+    
     cart = [];
     document.getElementById('custName').value = "";
     document.getElementById('custAddress').value = "";
     document.getElementById('custPhone').value = "";
     
     updateCartUI();
-    toggleCart(); // This will slide the panel away after buying
+    toggleCart(); 
 }
 
-// 6. INITIAL LOAD (Turns the photos on!)
+
 displayProducts(products);
 </script>
 
